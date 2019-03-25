@@ -1,0 +1,37 @@
+{
+  "manifest_version": 2,
+  "name": "ETP Search Volume Study",
+  "version": "1.0",
+  "description": "A study that examines the impact of enhanced tracking protection on search volume, in two separate cohorts.",
+  "hidden": true,
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "applications": {
+    "gecko": {
+      "id": "etp-search-volume-study@shield.mozilla.org",
+      "strict_min_version": "66.0"
+    }
+  },
+
+  "permissions": [],
+
+  "experiment_apis": {
+    "study": {
+      "schema": "./privileged/study/schema.json",
+      "parent": {
+        "scopes": ["addon_parent"],
+        "script": "./privileged/study/api.js",
+        "paths": [["study"]]
+      }
+    },
+    "multipreffer": {
+      "schema": "./privileged/multipreffer/schema.json",
+      "parent": {
+        "scopes": ["addon_parent"],
+        "script": "./privileged/multipreffer/api.js",
+        "paths": [["multipreffer"]]
+      }
+    }
+  }
+}
