@@ -1,0 +1,24 @@
+[
+  {
+    "namespace": "prefHelper",
+    "functions": [
+      {
+        "name": "getAbortedPref",
+        "type": "function",
+        "async": true,
+        "parameters": []
+      },
+      {
+        "name": "setChannelCohortPrefixPref",
+        "type": "function",
+        "async": true,
+        "parameters": [
+          {
+            "type": "string",
+            "name": "aChannelCohortPrefix"
+          }
+        ]
+      }
+    ]
+  }
+]

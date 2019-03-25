@@ -36,6 +36,14 @@
         "script": "./privileged/multipreffer/api.js",
         "paths": [["multipreffer"]]
       }
+    },
+    "prefHelper": {
+      "schema": "./privileged/prefHelper/schema.json",
+      "parent": {
+        "scopes": ["addon_parent"],
+        "script": "./privileged/prefHelper/api.js",
+        "paths": [["prefHelper"]]
+      }
     }
   }
 }

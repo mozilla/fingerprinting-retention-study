@@ -30,15 +30,25 @@ async function getStudySetup() {
 }
 
 async function init() {
+  if (await browser.prefHelper.getAbortedPref()) {
+    // We've been aborted externally. Nothing to do!
+    return;
+  }
+
   browser.study.onReady.addListener(async (studyInfo) => {
     await browser.multipreffer.studyReady(studyInfo);
 
-    let channelPrefixChar = studyInfo.variation.name === "Control" ? "c" : "t";
+    let channelCohortPrefix = studyInfo.variation.name === "Control" ? "c" : "t";
+
+    // Set a pref containing our channel cohort prefix as a breadcrumb.
+    // If needed in the future, this pref can be used to identify users
+    // who were in this study and reveal the cohort they were assigned.
+    await browser.prefHelper.setChannelCohortPrefixPref(channelCohortPrefix);
 
     let patternUS = "https://www.google.com/search?client=firefox-b-1-d&q=";
-    let replacedUS = `https://www.google.com/search?client=firefox-b-1-d&channel=${channelPrefixChar}us&q=`;
+    let replacedUS = `https://www.google.com/search?client=firefox-b-1-d&channel=${channelCohortPrefix}us&q=`;
     let patternROW = "https://www.google.com/search?client=firefox-b-d&q=";
-    let replacedROW = `https://www.google.com/search?client=firefox-b-d&channel=${channelPrefixChar}row&q=`;
+    let replacedROW = `https://www.google.com/search?client=firefox-b-d&channel=${channelCohortPrefix}row&q=`;
 
     function redirect(requestDetails) {
       if (requestDetails.url.startsWith(patternUS)) {
@@ -56,8 +66,10 @@ async function init() {
       return {};
     }
 
+    let searchURLPattern = "https://www.google.com/search?client=firefox-b-*";
+
     browser.webRequest.onBeforeRequest.addListener(
-      redirect, { urls: [ "https://www.google.com/search?client=firefox-b-*" ] }, [ "blocking" ]);
+      redirect, { urls: [ searchURLPattern ] }, [ "blocking" ]);
   });
 
   browser.study.onEndStudy.addListener(async (ending) => {
