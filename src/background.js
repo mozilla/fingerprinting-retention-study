@@ -32,6 +32,32 @@ async function getStudySetup() {
 async function init() {
   browser.study.onReady.addListener(async (studyInfo) => {
     await browser.multipreffer.studyReady(studyInfo);
+
+    let channelPrefixChar = studyInfo.variation.name === "Control" ? "c" : "t";
+
+    let patternUS = "https://www.google.com/search?client=firefox-b-1-d&q=";
+    let replacedUS = `https://www.google.com/search?client=firefox-b-1-d&channel=${channelPrefixChar}us&q=`;
+    let patternROW = "https://www.google.com/search?client=firefox-b-d&q=";
+    let replacedROW = `https://www.google.com/search?client=firefox-b-d&channel=${channelPrefixChar}row&q=`;
+
+    function redirect(requestDetails) {
+      if (requestDetails.url.startsWith(patternUS)) {
+        return {
+          redirectUrl: requestDetails.url.replace(patternUS, replacedUS),
+        }
+      }
+
+      if (requestDetails.url.startsWith(patternROW)) {
+        return {
+          redirectUrl: requestDetails.url.replace(patternROW, replacedROW),
+        }
+      }
+
+      return {};
+    }
+
+    browser.webRequest.onBeforeRequest.addListener(
+      redirect, { urls: [ "https://www.google.com/search?client=firefox-b-*" ] }, [ "blocking" ]);
   });
 
   browser.study.onEndStudy.addListener(async (ending) => {

@@ -59,6 +59,7 @@ this.FirefoxHooks = {
 
     DefaultPreferences.set(prefs);
     this.recomputeCategoryPref();
+
     AddonManager.addAddonListener(this);
   },
 

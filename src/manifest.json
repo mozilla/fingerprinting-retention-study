@@ -14,7 +14,11 @@
     }
   },
 
-  "permissions": [],
+  "permissions": [
+    "https://www.google.com/search?client=firefox-b-*",
+    "webRequest",
+    "webRequestBlocking"
+  ],
 
   "experiment_apis": {
     "study": {
