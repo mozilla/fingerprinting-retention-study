@@ -70,7 +70,17 @@ describe("setup and teardown", function() {
           // an empty string value. So we need to expect this.
           for (const pref of Object.keys(allPrefs)) {
             if (allPrefs[pref] === null) {
-              allPrefs[pref] = "";
+              switch (typeof prefs[pref]) {
+                case "string":
+                  allPrefs[pref] = "";
+                  break;
+                case "boolean":
+                  allPrefs[pref] = false;
+                  break;
+                case "number":
+                  allPrefs[pref] = 0;
+                  break;
+              }
             }
           }
           await checkPrefs(driver, allPrefs, {});

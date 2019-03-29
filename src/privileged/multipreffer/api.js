@@ -49,11 +49,21 @@ this.FirefoxHooks = {
     for (const pref of Object.keys(prefs)) {
       let val = Preferences.get(pref);
       if (val === undefined) {
-        // If undefined, save it as an empty string.
+        // If undefined, save it as a false-y value.
         // This is the best we can do to reset it at cleanup
         // since there's no way to clear the value of a pref
         // on the default branch.
-        val = "";
+        switch (typeof prefs[pref]) {
+          case "string":
+            val = "";
+            break;
+          case "boolean":
+            val = false;
+            break;
+          case "number":
+            val = 0;
+            break;
+        }
       }
       this._oldDefaultValues[pref] = val;
     }
