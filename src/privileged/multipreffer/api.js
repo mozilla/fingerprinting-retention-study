@@ -69,7 +69,6 @@ this.FirefoxHooks = {
     }
 
     DefaultPreferences.set(prefs);
-    this.recomputeCategoryPref();
 
     AddonManager.addAddonListener(this);
   },
@@ -77,22 +76,6 @@ this.FirefoxHooks = {
   cleanup() {
     // Called when the add-on is being removed for any reason.
     DefaultPreferences.set(this._oldDefaultValues);
-    this.recomputeCategoryPref();
-  },
-
-  recomputeCategoryPref() {
-    // BrowserGlue will recompute the category pref when the cookie behavior
-    // pref changes value, but only if the category pref is unset. So, we
-    // need to change the cookie behavior pref, which will recompute the
-    // category pref. Then, clear the newly recomputed category pref, and
-    // finally restore the cookie behavior pref again which will recompute
-    // the category pref in the correct state.
-    const cookieBehaviorValue =
-      Preferences.get("network.cookie.cookieBehavior");
-    const tempCookieBehaviorValue = cookieBehaviorValue === 4 ? 0 : 4;
-    Preferences.set("network.cookie.cookieBehavior", tempCookieBehaviorValue);
-    Preferences.reset("browser.contentblocking.category");
-    Preferences.set("network.cookie.cookieBehavior", cookieBehaviorValue);
   },
 
   onUninstalling(addon) {
