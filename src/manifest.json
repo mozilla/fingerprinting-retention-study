@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "ETP Search Volume Study",
-  "version": "1.1",
+  "version": "1.2",
   "description": "A study that examines the impact of enhanced tracking protection on search volume, in two separate cohorts.",
   "hidden": true,
   "background": {
