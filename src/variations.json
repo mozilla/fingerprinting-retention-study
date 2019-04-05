@@ -3,6 +3,7 @@
     "weight": 1,
     "prefs": {
       "urlclassifier.trackingAnnotationTable": "test-track-simple,base-track-digest256",
+      "browser.contentblocking.features.standard": "-tp,tpPrivate,cookieBehavior0,-cm,-fp",
       "network.cookie.cookieBehavior": 0,
       "privacy.annotate_channels.strict_list.enabled": false,
       "general.useragent.override.getpocket.com": "Mozilla/5.0 Gecko/20100101 Firefox Study-ETP-Off",
@@ -14,6 +15,7 @@
     "weight": 1,
     "prefs": {
       "urlclassifier.trackingAnnotationTable": "test-track-simple,base-track-digest256",
+      "browser.contentblocking.features.standard": "-tp,tpPrivate,cookieBehavior4,-cm,-fp",
       "network.cookie.cookieBehavior": 4,
       "privacy.annotate_channels.strict_list.enabled": false,
       "general.useragent.override.getpocket.com": "Mozilla/5.0 Gecko/20100101 Firefox Study-ETP-On",
