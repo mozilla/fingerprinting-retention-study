@@ -9,13 +9,13 @@
         "parameters": []
       },
       {
-        "name": "setChannelCohortPrefixPref",
+        "name": "setChannelCohortPref",
         "type": "function",
         "async": true,
         "parameters": [
           {
             "type": "string",
-            "name": "aChannelCohortPrefix"
+            "name": "aChannelCohort"
           }
         ]
       }

@@ -1,5 +1,5 @@
-# ETP Search Volume Study
+# Fingerprinting and Cryptomining Protections Retention Study
 
-This addon is a Shield study based on https://github.com/mozilla/cookie-restrictions-strict-list-study.
+This addon is a Shield study based on https://github.com/nhnt11/multipreffer.
 
-See https://bugzilla.mozilla.org/show_bug.cgi?id=1532678 for details on the study.
+See https://bugzilla.mozilla.org/show_bug.cgi?id=1533778 for details on the study.

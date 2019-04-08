@@ -1,25 +1,31 @@
 {
   "Control": {
     "weight": 1,
+    "prefs": {}
+  },
+
+  "FP": {
+    "weight": 1,
     "prefs": {
-      "urlclassifier.trackingAnnotationTable": "test-track-simple,base-track-digest256",
-      "browser.contentblocking.features.standard": "-tp,tpPrivate,cookieBehavior0,-cm,-fp",
-      "network.cookie.cookieBehavior": 0,
-      "privacy.annotate_channels.strict_list.enabled": false,
-      "general.useragent.override.getpocket.com": "Mozilla/5.0 Gecko/20100101 Firefox Study-ETP-Off",
-      "general.useragent.override.pocket.com": "Mozilla/5.0 Gecko/20100101 Firefox Study-ETP-Off"
+      "browser.contentblocking.features.standard": "-tp,tpPrivate,cookieBehavior0,-cm,fp",
+      "privacy.trackingprotection.fingerprinting.enabled": true
     }
   },
 
-  "Experiment": {
+  "CM": {
     "weight": 1,
     "prefs": {
-      "urlclassifier.trackingAnnotationTable": "test-track-simple,base-track-digest256",
-      "browser.contentblocking.features.standard": "-tp,tpPrivate,cookieBehavior4,-cm,-fp",
-      "network.cookie.cookieBehavior": 4,
-      "privacy.annotate_channels.strict_list.enabled": false,
-      "general.useragent.override.getpocket.com": "Mozilla/5.0 Gecko/20100101 Firefox Study-ETP-On",
-      "general.useragent.override.pocket.com": "Mozilla/5.0 Gecko/20100101 Firefox Study-ETP-On"
+      "browser.contentblocking.features.standard": "-tp,tpPrivate,cookieBehavior4,cm,-fp",
+      "privacy.trackingprotection.cryptomining.enabled": true
+    }
+  },
+
+  "FP+CM": {
+    "weight": 1,
+    "prefs": {
+      "browser.contentblocking.features.standard": "-tp,tpPrivate,cookieBehavior4,cm,fp",
+      "privacy.trackingprotection.fingerprinting.enabled": true,
+      "privacy.trackingprotection.cryptomining.enabled": true
     }
   }
 }

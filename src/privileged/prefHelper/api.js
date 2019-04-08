@@ -8,10 +8,10 @@ this.prefHelper = class extends ExtensionAPI {
     return {
       prefHelper: {
         async getAbortedPref() {
-          return Preferences.get("extensions.etp_search_volume_study.aborted");
+          return Preferences.get("extensions.fp_cm_retention_study.aborted");
         },
-        async setChannelCohortPrefixPref(aChannelCohortPrefix) {
-          Preferences.set("extensions.etp_search_volume_study.channel_cohort_prefix", aChannelCohortPrefix);
+        async setChannelCohortPref(aChannelCohort) {
+          Preferences.set("extensions.fp_cm_retention_study.channel_cohort", aChannelCohort);
         },
       },
     };
