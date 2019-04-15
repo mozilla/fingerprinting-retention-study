@@ -1,7 +1,12 @@
 {
-  "Control": {
+  "control": {
     "weight": 1,
-    "prefs": {}
+    "prefs": {
+      "browser.contentblocking.features.standard": "-tp,tpPrivate,cookieBehavior0,-cm,-fp",
+      "browser.contentblocking.features.strict": "tp,tpPrivate,cookieBehavior4,-cm,-fp",
+      "privacy.trackingprotection.fingerprinting.enabled": false,
+      "privacy.trackingprotection.cryptomining.enabled": false
+    }
   },
 
   "FP": {
@@ -9,7 +14,8 @@
     "prefs": {
       "browser.contentblocking.features.standard": "-tp,tpPrivate,cookieBehavior0,-cm,fp",
       "browser.contentblocking.features.strict": "tp,tpPrivate,cookieBehavior4,-cm,fp",
-      "privacy.trackingprotection.fingerprinting.enabled": true
+      "privacy.trackingprotection.fingerprinting.enabled": true,
+      "privacy.trackingprotection.cryptomining.enabled": false
     }
   },
 
@@ -18,7 +24,8 @@
     "prefs": {
       "browser.contentblocking.features.standard": "-tp,tpPrivate,cookieBehavior4,cm,-fp",
       "browser.contentblocking.features.strict": "tp,tpPrivate,cookieBehavior4,cm,-fp",
-      "privacy.trackingprotection.cryptomining.enabled": true
+      "privacy.trackingprotection.cryptomining.enabled": true,
+      "privacy.trackingprotection.fingerprinting.enabled": false
     }
   },
 

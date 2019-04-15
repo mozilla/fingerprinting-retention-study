@@ -38,12 +38,10 @@ async function init() {
   browser.study.onReady.addListener(async (studyInfo) => {
     await browser.multipreffer.studyReady(studyInfo);
 
-    let channelCohort = studyInfo.variation.name;
-
-    // Set a pref containing our channel cohort as a breadcrumb.
+    // Set a pref containing our branch name as a breadcrumb.
     // If needed in the future, this pref can be used to identify users
     // who were in this study and reveal the cohort they were assigned.
-    await browser.prefHelper.setChannelCohortPref(channelCohort);
+    await browser.prefHelper.setBranchNamePref(studyInfo.variation.name);
 
   });
 

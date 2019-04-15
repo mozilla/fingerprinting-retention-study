@@ -10,8 +10,8 @@ this.prefHelper = class extends ExtensionAPI {
         async getAbortedPref() {
           return Preferences.get("extensions.fp_cm_retention_study.aborted");
         },
-        async setChannelCohortPref(aChannelCohort) {
-          Preferences.set("extensions.fp_cm_retention_study.channel_cohort", aChannelCohort);
+        async setBranchNamePref(aBranchName) {
+          Preferences.set("extensions.fp_cm_retention_study.branch_name", aBranchName);
         },
       },
     };
