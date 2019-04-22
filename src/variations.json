@@ -17,25 +17,5 @@
       "privacy.trackingprotection.cryptomining.enabled": false,
       "privacy.trackingprotection.fingerprinting.enabled": true
     }
-  },
-
-  "CM": {
-    "weight": 1,
-    "prefs": {
-      "browser.contentblocking.features.standard": "-tp,tpPrivate,cookieBehavior0,cm,-fp",
-      "browser.contentblocking.features.strict": "tp,tpPrivate,cookieBehavior4,cm,-fp",
-      "privacy.trackingprotection.cryptomining.enabled": true,
-      "privacy.trackingprotection.fingerprinting.enabled": false
-    }
-  },
-
-  "FP+CM": {
-    "weight": 1,
-    "prefs": {
-      "browser.contentblocking.features.standard": "-tp,tpPrivate,cookieBehavior0,cm,fp",
-      "browser.contentblocking.features.strict": "tp,tpPrivate,cookieBehavior4,cm,fp",
-      "privacy.trackingprotection.cryptomining.enabled": true,
-      "privacy.trackingprotection.fingerprinting.enabled": true
-    }
   }
 }

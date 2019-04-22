@@ -1,4 +1,4 @@
-# Fingerprinting and Cryptomining Protections Retention Study
+# Fingerprinting Protections Retention Study
 
 This addon is a Shield study based on https://github.com/nhnt11/multipreffer.
 
