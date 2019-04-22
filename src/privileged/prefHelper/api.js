@@ -8,10 +8,10 @@ this.prefHelper = class extends ExtensionAPI {
     return {
       prefHelper: {
         async getAbortedPref() {
-          return Preferences.get("extensions.fp_cm_retention_study.aborted");
+          return Preferences.get("extensions.fp_retention_study.aborted");
         },
         async setBranchNamePref(aBranchName) {
-          Preferences.set("extensions.fp_cm_retention_study.branch_name", aBranchName);
+          Preferences.set("extensions.fp_retention_study.branch_name", aBranchName);
         },
       },
     };
